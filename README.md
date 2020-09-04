@@ -17,4 +17,4 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices\
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects\
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs\
 
-### If you want to have it print out KnownDLLs so you can check for hijacking, set the INCLUDE_KNOWN_DLLS in the main class to true.
+### If you want to have it print out KnownDLLs so you can check for hijacking, set INCLUDE_KNOWN_DLLS in the main class to true.
