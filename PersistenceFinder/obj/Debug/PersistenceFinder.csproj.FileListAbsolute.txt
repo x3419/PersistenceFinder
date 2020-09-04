@@ -1,0 +1,7 @@
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\bin\Debug\PersistenceFinder.exe.config
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\bin\Debug\PersistenceFinder.exe
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\bin\Debug\PersistenceFinder.pdb
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\obj\Debug\PersistenceFinder.csprojAssemblyReference.cache
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\obj\Debug\PersistenceFinder.csproj.CoreCompileInputs.cache
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\obj\Debug\PersistenceFinder.exe
+C:\Users\A\source\repos\PersistenceFinder\PersistenceFinder\obj\Debug\PersistenceFinder.pdb
