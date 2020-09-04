@@ -100,17 +100,24 @@ namespace PersistenceFinder
                                 Console.WriteLine("Key: " + item.Key + "\r\nValue: " + item.Value + "\r\n");
 
                                 // Lets enumerate all of the startup items, wherever the Startup folder is set
-                                DirectoryInfo d = new DirectoryInfo((string)item.Value);
-                                FileInfo[] Files = d.GetFiles("*.*");
-                                string fullPath = "";
-                                foreach (FileInfo file in Files)
+                                try
                                 {
-                                    fullPath = (string)item.Value + "\\" + file.Name;
-                                    if (file.Name != "desktop.ini")
+                                    DirectoryInfo d = new DirectoryInfo((string)item.Value);
+                                    FileInfo[] Files = d.GetFiles("*.*");
+                                    string fullPath = "";
+                                    foreach (FileInfo file in Files)
                                     {
-                                        Console.WriteLine(fullPath);
+                                        fullPath = (string)item.Value + "\\" + file.Name;
+                                        if (file.Name != "desktop.ini")
+                                        {
+                                            Console.WriteLine(fullPath);
+                                        }
                                     }
+                                } catch(Exception e)
+                                {
+                                    // do nothing
                                 }
+                                
                             }
                             continue;
                         }
@@ -119,7 +126,6 @@ namespace PersistenceFinder
                     }
 
                 }
-
 
             }
             catch (Exception ex)  
