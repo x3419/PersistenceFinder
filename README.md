@@ -1,1 +1,1 @@
-"# PersistenceFinder" 
+# This is a simple registry persistence enumerator meant to quickly triage during incident response scenarios.
