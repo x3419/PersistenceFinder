@@ -24,3 +24,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Browser He
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs\
 
 ### If you want to have it print out KnownDLLs so you can check for hijacking, set INCLUDE_KNOWN_DLLS in the main class to true.
+
+### TODO:
+  * WMI Subscriptions
+  * Scheduled Tasks
