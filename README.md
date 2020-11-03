@@ -1,4 +1,4 @@
-## This is a simple registry persistence enumerator meant to quickly triage during incident response scenarios.
+## This is a simple persistence enumerator meant to quickly triage during incident response scenarios.
 
 ### Currently it enumerates the following keys (if they are not empty)
 
@@ -25,6 +25,11 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_
 
 ### If you want to have it print out KnownDLLs so you can check for hijacking, set INCLUDE_KNOWN_DLLS in the main class to true.
 
+### WMI Enumeration:
+  * EventFilters
+  * Consumers
+  * Bindings
+
+
 ### TODO:
-  * WMI Subscriptions
   * Scheduled Tasks
