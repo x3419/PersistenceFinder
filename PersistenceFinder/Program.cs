@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Management;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
@@ -126,6 +130,80 @@ namespace PersistenceFinder
                     }
 
                 }
+
+                // WMI persistence
+                // ------------------
+                using (PowerShell powerShell = PowerShell.Create())
+                {
+                    // EventFilters
+                    powerShell.AddScript("Get-WMIObject -Namespace root/Subscription -Class __EventFilter");
+                    Collection<PSObject> PSOutput = powerShell.Invoke();
+                    foreach (PSObject outputItem in PSOutput)
+                    {
+                        if (PSOutput.Count > 0)
+                        {
+                            Console.WriteLine("EventFilters:\r\n-----------");
+                        }
+                        if (outputItem != null)
+                        {
+                           
+                            Console.WriteLine("Namespace: " + outputItem.Properties["__NAMESPACE"].Value);
+                            Console.WriteLine("Class: " + outputItem.Properties["__CLASS"].Value);
+                            Console.WriteLine("Query: " + outputItem.Properties["Name"].Value);
+                            Console.WriteLine("Path: " + outputItem.Properties["__PATH"].Value);
+                            Console.WriteLine("Query: " + outputItem.Properties["Query"].Value);
+                            Console.WriteLine();
+
+                        }
+                    }
+
+                    // Consumers
+                    powerShell.AddScript("Get-WMIObject -Namespace root/Subscription -Class CommandLineEventConsumer");
+                    PSOutput = powerShell.Invoke();
+                    foreach (PSObject outputItem in PSOutput)
+                    {
+                        if (PSOutput.Count > 0)
+                        {
+                            Console.WriteLine("Consumers:\r\n-----------");
+                        }
+                        if (outputItem != null)
+                        {
+                            Console.WriteLine("Namespace: " + outputItem.Properties["__NAMESPACE"].Value);
+                            Console.WriteLine("Class: " + outputItem.Properties["__CLASS"].Value);
+                            Console.WriteLine("Path: " + outputItem.Properties["__PATH"].Value);
+                            Console.WriteLine("Name: " + outputItem.Properties["Name"].Value);
+                            Console.WriteLine("CommandLineTemplate: " + outputItem.Properties["CommandLineTemplate"].Value);
+                            Console.WriteLine("CreatorSID: " + outputItem.Properties["CreatorSID"].Value);
+                            Console.WriteLine();
+                        }
+                    }
+
+
+                    // Bindings
+                    powerShell.AddScript("Get-WMIObject -Namespace root/Subscription -Class CommandLineEventConsumer");
+                    PSOutput = powerShell.Invoke();
+                    foreach (PSObject outputItem in PSOutput)
+                    {
+                        if (PSOutput.Count > 0)
+                        {
+                            Console.WriteLine("Bindings:\r\n-----------");
+                        }
+                        if (outputItem != null)
+                        {
+                            Console.WriteLine("Namespace: " + outputItem.Properties["__NAMESPACE"].Value);
+                            Console.WriteLine("Class: " + outputItem.Properties["__CLASS"].Value);
+                            Console.WriteLine("Path: " + outputItem.Properties["__PATH"].Value);
+                            Console.WriteLine("Consumer: " + outputItem.Properties["Consumer"].Value);
+                            Console.WriteLine("MaintainSecurityContext: " + outputItem.Properties["MaintainSecurityContext"].Value);
+                            Console.WriteLine("CreatorSID: " + outputItem.Properties["CreatorSID"].Value);
+                            Console.WriteLine();
+                        }
+                    }
+
+                }
+
+
+
 
             }
             catch (Exception ex)  
